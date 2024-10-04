@@ -109,7 +109,7 @@ function displayRandomGame() {
   const randomGame = commonGames[Math.floor(Math.random() * commonGames.length)];
 
   // Display the random game and add the Pick Another Game button
-  gameList.innerHTML = `<h3>Everyone play:</h3><p>${randomGame}</p>`;
+  gameList.innerHTML = `<h3>Everyone play:</h3><p><h2>${randomGame}</h2></p>`;
   gameList.innerHTML += `<button onclick="displayRandomGame()">Pick Another Game</button>`;
 
   // Add input field for time in minutes and a button to start the timer
@@ -141,7 +141,7 @@ function startTimer() {
       const seconds = timeInSeconds % 60;
 
       // Display the remaining time in MM:SS format
-      timerDisplay.innerHTML = `Time left: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+      timerDisplay.innerHTML = `<h1 style="text-align: center; font-size: 100px">Time left:<p> ${minutes}:${seconds < 10 ? '0' : ''}${seconds}</p></h1>`;
       
       timeInSeconds--;
     } else {

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LPAGD</title>
-  <link rel="stylesheet" href="styles.css">
+  
   <span class="pln"><!-- Google Fonts -->
   </span><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic"><span class="pln">
   
@@ -15,6 +15,7 @@
   </span><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css"><span class="pln">
   
   <!-- You should properly set the path from the main file. --></span>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   
@@ -39,24 +40,22 @@
   </header>
 </div>
 
-  <audio id="alarmSound" src="short_alarm.wav" preload="auto"></audio>
-  <div class="container" style="padding-top: 100px;">
-    <h1 style="text-align: center;">Let's Play a Game Dammit</h1>
+  
+  <div class="Section container" style="padding-top: 100px;">
+    <h1 style="text-align: center;">What is this?</h1>
+    <p> If you're like me, you end up in calls with your friends asking each other if they want to play X or Y game and end up playing nothing instead.</p>
+    <p> This is a simple game I made to <b>MAKE</b> you choose a game to play. It's a game about playing games!</p>
 
-    <!-- Step 1: Ask for number of players -->
-    <div class="form-group">
-      <label for="playerCount">Enter Number of Players:</label>
-      <input type="number" id="playerCount" min="1" placeholder="Number of Players">
-      <button onclick="generateInputFields()">Submit</button>
-    </div>
 
-    <!-- Step 2: Spawn Steam ID input boxes based on number of players -->
-    <div id="steamIdInputs"></div>
-
-    <!-- Step 3: Display the game list -->
-    <div id="gameList"></div>
+    <h1 style="text-align: center;">How do I play?</h1>
+    <ol>
+      <li>Ask your friends if they can spare you 20 minutes. Everyone can spare 20 minutes for a friend right?</li>
+      <li>Get everyone's Steam ID, you can use <a href="http://steamidfinder.com" target="_blank">Steam ID Finder</a></li>
+      <li>Enter their IDs into the app. It will get everyone's games and only choose games you all own.</li>
+      <li>Ensure the game it picks has multiplayer and supports your number of players (doing this via game tags is unreliable). Click "pick a new game" if not.</li>
+      <li>Choose a timer, 20 minutes is standard.</li>
+      <li>Everyone MUST play the game for the time limit at least. If everyone enjoys it, great you found a game. If not, then try again!</li>
+    </ol>
   </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
