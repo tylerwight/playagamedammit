@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Steam Game List</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Steam Game List</h1>
+    <div class="form-group">
+      <label for="steamId">Enter Steam ID:</label>
+      <input type="text" id="steamId" placeholder="Steam ID">
+      <button onclick="fetchGames()">Submit</button>
+    </div>
+    <div id="gameList"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
