@@ -2,9 +2,10 @@
   "name": "playagamedammit",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js.js",
+  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "start": "node server.js"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +13,7 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
-    "milligram": "^1.4.1"
+    "milligram": "^1.4.1",
+    "node-fetch": "^3.3.2"
   }
 }
