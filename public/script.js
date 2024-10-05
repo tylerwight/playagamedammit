@@ -1,5 +1,7 @@
 let commonGames = []; 
 let timerInterval;
+let playerCount = 0;
+let randomGame = [];
 
 async function fetchGames() {
   const steamId = document.getElementById('steamId').value;
@@ -24,7 +26,7 @@ async function fetchGames() {
 
 
 function generateInputFields() {
-  const playerCount = document.getElementById('playerCount').value;
+  playerCount = document.getElementById('playerCount').value;
   const steamIdInputs = document.getElementById('steamIdInputs');
   steamIdInputs.innerHTML = ''; // Clear any existing inputs
   const formGroup = document.querySelector('.form-group');
@@ -57,18 +59,19 @@ async function fetchGamesForAllPlayers(playerCount) {
   let playerGames = [];
   let errorOccurred = false;
 
-
   for (let i = 1; i <= playerCount; i++) {
     const steamId = document.getElementById(`steamId${i}`).value;
 
     try {
-
       const response = await fetch(`/games/${steamId}`);
       const games = await response.json();
 
       if (games.length > 0) {
-        const gameNames = games.map(game => game.name);
-        playerGames.push(gameNames);
+        const gameData = games.map(game => ({
+          name: game.name,
+          appid: game.appid
+        }));
+        playerGames.push(gameData);
       } else {
         gameList.innerHTML = `<h3>Player ${i} Games:</h3><p>No games found or Steam ID is private.</p>`;
         return; 
@@ -82,12 +85,12 @@ async function fetchGamesForAllPlayers(playerCount) {
   }
 
   if (errorOccurred) {
-    return; 
+    return;
   }
 
-
-  commonGames = playerGames.reduce((common, games) => common.filter(game => games.includes(game))).sort();
-
+  commonGames = playerGames.reduce((common, games) => 
+    common.filter(game => games.some(g => g.name === game.name && g.appid === game.appid))
+  ).sort((a, b) => a.name.localeCompare(b.name));
 
   if (commonGames.length > 0) {
     displayRandomGame();
@@ -100,20 +103,29 @@ async function fetchGamesForAllPlayers(playerCount) {
 
 function displayRandomGame() {
   const gameList = document.getElementById('gameList');
-  const randomGame = commonGames[Math.floor(Math.random() * commonGames.length)];
-
-  gameList.innerHTML = `<h3>Everyone play:</h3><p><h2>${randomGame}</h2></p>`;
+  
+  randomGame = commonGames[Math.floor(Math.random() * commonGames.length)];
+  
+  const steamStoreUrl = `https://store.steampowered.com/app/${randomGame.appid}`;
+  
+  gameList.innerHTML = `
+    <h3>Everyone play:</h3>
+    <p><h2>${randomGame.name}</h2></p>
+    <p><a href="${steamStoreUrl}" target="_blank">Steam Store Page</a></p>
+  `;
+  
   gameList.innerHTML += `<button onclick="displayRandomGame()">Pick Another Game</button>`;
-
+  
   gameList.innerHTML += `
     <div>
-      <label for="timerInput">Enter time (in minutes):</label>
+      <label for="timerInput">Enter play time:</label>
       <input type="number" id="timerInput" placeholder="Minutes">
       <button onclick="startTimer()">Start Timer</button>
     </div>
     <div id="timerDisplay"></div>
   `;
 }
+
 
 
 function startTimer() {

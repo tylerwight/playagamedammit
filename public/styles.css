@@ -166,4 +166,29 @@
       opacity: 1;
     }
   }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .container {
+    flex: 1; 
+  }
+  
+  footer {
+    text-align: center;
+    padding: 10px;
+    font-size: 0.8em;
+    background-color: #f8f8f8;
+    width: 100%;
+  }
+  
   /*# sourceMappingURL=style.css.map */
