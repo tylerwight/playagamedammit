@@ -31,7 +31,7 @@ function generateInputFields() {
 
 
   // Check if player count is valid
-  if (playerCount <= 0 || playerCount > 4) {
+  if (playerCount <= 0 || playerCount > 5) {
     steamIdInputs.innerHTML = '<p>Please enter a valid number of players. 1-4</p>';
     return;
   }
