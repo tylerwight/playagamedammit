@@ -12,8 +12,8 @@
     z-index: 999;
     padding: .4rem;
     position: fixed;
-    background: #f4f5f6;
-    border-bottom: 0.1rem solid #d1d1d1;
+    background: #1b1c1d;
+    border-bottom: 0.1rem solid #1b1c1d;
   }
   
   header input.menu-toggle {
@@ -187,8 +187,58 @@
     text-align: center;
     padding: 10px;
     font-size: 0.8em;
-    background-color: #f8f8f8;
+    background-color: #1b1c1d;
     width: 100%;
   }
   
   /*# sourceMappingURL=style.css.map */
+
+
+  /* Include this stylesheet after Milligram or merge it with your main.css */
+
+body {
+  background: #2c2f34;
+  color: #f2f2f2;
+}
+
+.navigation .title,
+.navigation-title {
+  color: #f2f2f2;
+}
+
+.navigation {
+  background: #34373c;
+  border-bottom: 0.1rem solid #1b1c1d;
+}
+
+.header {
+  background-color: #1b1c1d;
+}
+
+pre {
+  background: #141518;
+}
+
+.prettyprint {
+  color: #f2f2f2;
+}
+
+.prettyprint.lang-md * {
+  color: #f2f2f2 !important;
+}
+
+code {
+  background: #141518;
+}
+
+.prettyprint .atv {
+  color: rgba(73, 158, 223, 1);
+}
+
+input, select, textarea{
+  color: #767272;
+}
+
+textarea:focus, input:focus {
+  color: #ffffff;
+}
