@@ -242,3 +242,10 @@ input, select, textarea{
 textarea:focus, input:focus {
   color: #ffffff;
 }
+
+
+.button, button, dd, dt, li {
+  margin-bottom: 1.0rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
